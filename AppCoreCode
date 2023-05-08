@@ -1,0 +1,215 @@
+#Botu aşlışdırmadan öncə  D:\Bot\CavabList.txt faynını yaratdığınızdan əmin olun
+import telebot
+Mytoooken = "5606731286:AAFtm7Ulv90UNBX4H1u_0tY9l_Ml0a0UWsw"
+#from telebot import TeleBot
+MyBot = telebot.TeleBot(Mytoooken)
+MyChatID = 633283743
+print('Bot is online...')
+
+Sual_1 = """1. Probleminiz və başınıza gələn pis hadisə barədə bölüşürsünüzmü?
+      A) xeyr. Bu mənə kömək etmir
+      B) hə. Münasib həmsöhbət varsa 
+      C) həmişə yox. Hərənin öz dərdi var"""
+Sual_2 = """2.Probleminizə görə çox fikir edirsinizmi?
+      A) həmişə və çox ağır
+      B) hər şey vəziyyətdən asılıdır
+      C) razılaşıram, çünki gec-tez hər bir çətinliyin sonu gələcək"""
+Sual_3 = """3.Siz çox fikirlisiniz. Bu halda nə edirsiniz?
+      A) çoxdan arzuladığımı həyata keçirirəm 
+      B) yaxşı dostlarımla görüşürəm 
+      C) evdə otururam və özümə yazığım gəlir"""
+Sual_4 = """4. Yaxın adamınız sizin xətrinizə dəyib. Nə edəcəksiniz?
+      A) susacağam 
+      B) izahat tələb edəcəyəm 
+      C) dərdimə qulaq asmağa hazır olan adamla bölüşəcəyəm"""
+Sual_5 = """5. Xoşbəxt anlarda…
+      A) bədbəxtlik barədə düşünmürəm
+      B) xoşbəxtliyimin bitəcəyi barədə fikirlər məni rahat buraxmır.
+      C) həyatda problemlərin sıx olması barədə unutmuram"""
+Sual_6 = """6. Psixiatrlara münasibətiniz necədir?
+      A) onun xəstəsi olmaq istəməzdim 
+      B) onlar çoxlarına kömək edir
+      C) insan öz-özünə kömək etmək iqtidarındadır """
+
+Sual_7 = """7. Sizin fikrinizcə tale…
+      A) həmişə sizi sınağa çəkir
+      B) sizi gözümçıxdıya salır
+      C) sizin tərəfinizdədir"""
+
+Sual_8 = """8. Sevdiyiniz adamla dalaşandan sonra qəzəbiniz yavaş-yavaş soyuyur və siz nə barədə düşünürsünüz?
+      A) keçmişdə olan xoş hadisələr barədə 
+      B) gizli qisas barədə 
+      C) ondan çəkdiyiniz əziyyət barədə"""
+
+@MyBot.message_handler(commands=['start'])
+def SualList(message):
+    FaylRead = open('E:\Bot\CavabList.txt', 'w+')
+    MyBot.reply_to(message, 'Suallara bir-bir toxunub cavab variantını (A,B ya C) göndərin: \n\n/Sual_1\n\n/Sual_2\n\n/Sual_3\n\n/Sual_4\n\n/Sual_5\n\n/Sual_6\n\n/Sual_7\n\n/Sual_8\n\n/result')
+
+@MyBot.message_handler(commands=['Sual_1'])
+def CommandLine(message):
+    MyBot.reply_to(message, Sual_1)
+    @MyBot.message_handler(func=lambda m: True)
+    def AnsCheck(message):
+        #print(message.chat.id)
+        Cavab = message.text
+        Cavab1 = Cavab.upper()
+        if Cavab1 == "A":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('3 ')
+        if Cavab1 == "B":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('1 ')
+        if Cavab1 == "C":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('2 ')
+
+@MyBot.message_handler(commands=['Sual_2'])
+def CommandLine(message):
+    MyBot.reply_to(message, Sual_2)
+    @MyBot.message_handler(func=lambda m: True)
+    def AnsCheck(message):
+        Cavab = message.text
+        Cavab2 = Cavab.upper()
+        if Cavab2 == "A":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('4 ')
+        if Cavab2 == "B":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('0 ')
+        if Cavab2 == "C":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('2 ')
+
+@MyBot.message_handler(commands=['Sual_3'])
+def CommandLine(message):
+    MyBot.reply_to(message, Sual_3)
+    @MyBot.message_handler(func=lambda m: True)
+    def AnsCheck(message):
+        Cavab = message.text
+        Cavab1 = Cavab.upper()
+        if Cavab1 == "A":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('0 ')
+        if Cavab1 == "B":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('2 ')
+        if Cavab1 == "C":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('4 ')
+
+@MyBot.message_handler(commands=['Sual_4'])
+def CommandLine(message):
+    MyBot.reply_to(message, Sual_4)
+    @MyBot.message_handler(func=lambda m: True)
+    def AnsCheck(message):
+        Cavab = message.text
+        Cavab1 = Cavab.upper()
+        if Cavab1 == "A":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('3 ')
+        if Cavab1 == "B":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('0 ')
+        if Cavab1 == "C":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('1 ')
+
+@MyBot.message_handler(commands=['Sual_5'])
+def CommandLine(message):
+    MyBot.reply_to(message, Sual_5)
+    @MyBot.message_handler(func=lambda m: True)
+    def AnsCheck(message):
+        Cavab = message.text
+        Cavab1 = Cavab.upper()
+        if Cavab1 == "A":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('1 ')
+        if Cavab1 == "B":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('3 ')
+        if Cavab1 == "C":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('5 ')
+
+@MyBot.message_handler(commands=['Sual_6'])
+def CommandLine(message):
+    MyBot.reply_to(message, Sual_6)
+    @MyBot.message_handler(func=lambda m: True)
+    def AnsCheck(message):
+        Cavab = message.text
+        Cavab1 = Cavab.upper()
+        if Cavab1 == "A":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('4 ')
+        if Cavab1 == "B":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('2 ')
+        if Cavab1 == "C":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('3 ')
+
+@MyBot.message_handler(commands=['Sual_7'])
+def CommandLine(message):
+    MyBot.reply_to(message, Sual_7)
+    @MyBot.message_handler(func=lambda m: True)
+    def AnsCheck(message):
+        Cavab = message.text
+        Cavab1 = Cavab.upper()
+        if Cavab1 == "A":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('5 ')
+        if Cavab1 == "B":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('2 ')
+        if Cavab1 == "C":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('1 ')
+
+@MyBot.message_handler(commands=['Sual_8'])
+def CommandLine(message):
+    MyBot.reply_to(message, Sual_8)
+    @MyBot.message_handler(func=lambda m: True)
+    def AnsCheck(message):
+        Cavab = message.text
+        Cavab1 = Cavab.upper()
+        if Cavab1 == "A":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('1 ')
+        if Cavab1 == "B":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('2 ')
+        if Cavab1 == "C":
+            Fayl = open('E:\Bot\CavabList.txt', 'a')
+            Fayl.write('3 ')
+
+
+@MyBot.message_handler(commands=['result'])
+def CommandLine(message):
+    MyList = []  # File-den gelen datalarin listi
+    MyList2 = []  # Ywkun list
+    MyFile = open('E:\Bot\CavabList.txt', 'r')
+    MyText = ''
+    for i in MyFile:
+        MyList.append(i)
+    for i in MyList:
+        MyText = str(i)  # List içindeki bötöv elemneti str edir
+    # Yeni str data içindən boşluqrarı alır ve qalanı MyList2-ye verir
+    for i in MyText:
+        if i != " ":
+            MyList2.append(int(i))
+    print(sum(MyList2))
+    print(message.chat.id)
+    Result_1 = "Çətinliklərə düzgün qiymət verməyi bacaran birisiniz. Problemlər onları həll etmək üçün var."
+    Result_2 = "Taleyinizdən həmişə gileylisiniz. Problemləri yox, günahkarlari hədəfə alırsınız."
+    Result_3 = "Problemlərin öhtəsindən hələ bilmirsiniz. Onlar sizə əzab verir. Güclü olun!"
+    SumMyList = sum(MyList2)
+    if SumMyList <= 15:
+        MyBot.reply_to(message, 'NƏTİCƏ:  {} '.format(Result_1))
+    elif 15 < SumMyList < 26:
+        MyBot.reply_to(message, 'NƏTİCƏ:  {} '.format(Result_2))
+    elif SumMyList >= 27:
+        MyBot.reply_to(message, 'NƏTİCƏ:  {} '.format(Result_3))
+    MyBot.reply_to(message,'Siz {} bal topladınız! Testə yenidən başlamaq üçün /start göndərin'.format(sum(MyList2)))
+    FaylRead = open('E:\Bot\CavabList.txt', 'w')
+MyBot.polling()
